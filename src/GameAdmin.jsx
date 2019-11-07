@@ -7,11 +7,12 @@ class GameAdmin extends React.Component{
         super(props);
         this.state={
             namePlayerOne: "<name from input field>",
-            namePlayerTwo: "<name from input field>"
+            namePlayerTwo: "<name from input field>",
+            playButton: true
         }
         this.SetPlayerOneName=this.SetPlayerOneName.bind(this);
         this.SetPlayerTwoName=this.SetPlayerTwoName.bind(this);
-
+        this.ClickButtonChangeTurn=this.ClickButtonChangeTurn.bind(this);
     }
     SetPlayerOneName=(event)=>{
         this.setState({
@@ -23,11 +24,16 @@ class GameAdmin extends React.Component{
             namePlayerTwo: event.target.value
         })
     }
+    ClickButtonChangeTurn=()=>{
+        this.setState({
+            playButton: !this.state.playButton
+        })
+    }
     render(){
         return (
             <div>
-                <PlayerOne name={this.state.namePlayerOne}/>
-                <PlayerTwo name={this.state.namePlayerTwo}/>
+                <PlayerOne name={this.state.namePlayerOne} Click={this.ClickButtonChangeTurn} play={this.state.playButton}/>
+                <PlayerTwo name={this.state.namePlayerTwo} Click={this.ClickButtonChangeTurn} play={this.state.playButton}/>
                 <div style={{ borderTopStyle: 'solid', borderWidth: 1, marginTop: 15 }}>
                     <div style={{marginTop:15}}>
                         Set Name of Player One
