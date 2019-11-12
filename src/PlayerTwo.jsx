@@ -16,9 +16,10 @@ class PlayerTwo extends React.Component{
         return text;
     }
     IncrementCount=()=>{
-        this.setState({
-            count:++this.state.count
-        })
+        //this.setState({
+        //    count:++this.state.count
+        //})
+        this.setState((prevState)=>({count:++prevState.count}))
     }
     render(){
         return (

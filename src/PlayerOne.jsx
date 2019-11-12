@@ -1,8 +1,8 @@
 import React from 'react'
 
 class PlayerOne extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             count: 0
         }
@@ -17,9 +17,7 @@ class PlayerOne extends React.Component{
         return text;
     }
     IncrementCount=()=>{
-        this.setState({
-            count:++this.state.count
-        })
+        this.setState((prevState)=>({count:++prevState.count}))
     }
     render(){
         return (
